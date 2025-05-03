@@ -2260,7 +2260,8 @@
                         "congratulations": blessing
                     }),
                     processData: false, // Ngăn jQuery tự động chuyển đổi dữ liệu
-                    contentType: false, // Ngăn jQuery thiết lập header Content-Type
+                    //contentType: false, // Ngăn jQuery thiết lập header Content-Type
+                    contentType: 'application/json',
                     success: function(response) {
                         console.log('Phản hồi:', response);
                         showSuccessPopup('Gửi lời chúc thành công.');
