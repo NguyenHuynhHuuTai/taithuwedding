@@ -1279,7 +1279,8 @@
             </div>
         </section>
         <script>
-            const baseURL = "https://script.google.com/macros/s/AKfycbx5kf74CMaRPd9nOAzjSgci_zWIZFu8yuNENjsNwFnD7Vrb3JciHYK-QgKX9eGZvqjrMw/exec";
+            //const baseURL = "https://script.google.com/macros/s/AKfycbx5kf74CMaRPd9nOAzjSgci_zWIZFu8yuNENjsNwFnD7Vrb3JciHYK-QgKX9eGZvqjrMw/exec";
+            const baseURL = "https://script.google.com/macros/s/AKfycbzIw68sRAOtj9L4FjerqXZ2NYYDfxT_qZ0UiAnu-ADe1DfTfBiXvLnVe15O5bTgBFdr7g/exec";
             function applyConfig(id) {
                 let dataConfig = {
                     "album": [
@@ -2201,36 +2202,53 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             function fetchBlessingData() {
-                const slug = $('#congratulation-list').data('slug');
-                if (slug) {
-                    $.ajax({
-                        //url: baseURL + '/api/blessing', // Gọi đúng endpoint
-                        url: baseURL,
-                        method: 'GET', // Thay đổi phương thức thành GET
-                        success: function(response) {
-                            const data = response.data;
-                            console.log("🚀HuuTai.Nguyen ~ fetchBlessingData ~ data:", data)
-                            let congratulateHtmlAll = `
-                                <div class="wish-box-item">
-                                    <strong>Lững Mật</strong>
-                                    <p>Tui rất vui khi được là một mắc xích trong chặng đường hạnh phúc của hai bạn. Dù
-                                            sông có đổi núi có dời, chúc hai bạn vẫn một đời thương nhau &lt;3 </p>
-                                </div>`; // Sử dụng let để biến có thể thay đổi
-                            data.forEach(function(item, index) {
-                                let congratulateHtml = `<div class="wish-box-item ">`;
-                                congratulateHtml += `
-                                    <strong>${item.name}</strong>
-                                    <p>${item.congratulations}</p>
-                                </div>`;
-                                congratulateHtmlAll += congratulateHtml; // Cộng dồn nội dung
-                            });
-                            $('#congratulation-list').html(congratulateHtmlAll); // Thêm nội dung vào danh sách
-                        },
+                // const slug = $('#congratulation-list').data('slug');
+                // if (slug) {
+                //     $.ajax({
+                //         //url: baseURL + '/api/blessing', // Gọi đúng endpoint
+                //         url: baseURL,
+                //         method: 'GET', // Thay đổi phương thức thành GET
+                //         success: function(response) {
+                //             const data = response.data;
+                //             console.log("🚀HuuTai.Nguyen ~ fetchBlessingData ~ data:", data)
+                //             let congratulateHtmlAll = `
+                //                 <div class="wish-box-item">
+                //                     <strong>Lững Mật</strong>
+                //                     <p>Tui rất vui khi được là một mắc xích trong chặng đường hạnh phúc của hai bạn. Dù
+                //                             sông có đổi núi có dời, chúc hai bạn vẫn một đời thương nhau &lt;3 </p>
+                //                 </div>`; // Sử dụng let để biến có thể thay đổi
+                //             data.forEach(function(item, index) {
+                //                 let congratulateHtml = `<div class="wish-box-item ">`;
+                //                 congratulateHtml += `
+                //                     <strong>${item.name}</strong>
+                //                     <p>${item.congratulations}</p>
+                //                 </div>`;
+                //                 congratulateHtmlAll += congratulateHtml; // Cộng dồn nội dung
+                //             });
+                //             $('#congratulation-list').html(congratulateHtmlAll); // Thêm nội dung vào danh sách
+                //         },
 
-                        error: function() {
-                            console.error('Có lỗi xảy ra khi lấy dữ liệu từ API.');
-                        }
-                    });
+                //         error: function() {
+                //             console.error('Có lỗi xảy ra khi lấy dữ liệu từ API.');
+                //         }
+                //     });
+                fetch(baseURL)
+        .then(res => res.json())
+        .then(response => {
+            const data = response.data;
+            let html = '';
+            data.forEach(item => {
+                html += `
+                    <div class="wish-box-item">
+                        <strong>${item.name}</strong>
+                        <p>${item.congratulations}</p>
+                    </div>`;
+            });
+            document.getElementById('congratulation-list').innerHTML = html;
+        })
+        .catch(err => {
+            console.error('Lỗi lấy danh sách:', err);
+        });
                 }
             }
 
@@ -2248,34 +2266,48 @@
                     return;
                 }
 
-                $.ajax({
-                    headers: {
-                        "X-AUTH": $('meta[name="csrf-token"]').attr("content"),
-                    },
-                    //url: baseURL + '/api/blessing',
-                    url: baseURL,
-                    method: 'POST',
-                    data: JSON.stringify({
-                        "name": name,
-                        "congratulations": blessing
-                    }),
-                    processData: false, // Ngăn jQuery tự động chuyển đổi dữ liệu
-                    //contentType: false, // Ngăn jQuery thiết lập header Content-Type
-                    contentType: 'application/json',
-                    success: function(response) {
-                        console.log('Phản hồi:', response);
-                        showSuccessPopup('Gửi lời chúc thành công.');
-                        $('#guest-name').val('');
-                        $('#guest-blessing').val('');
-                        $('#avatar-upload').val('');
-                        $('.vitualTextarea #content').val('');
-                        fetchBlessingData(); // Gọi hàm lấy dữ liệu nếu cần
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Lỗi:', error);
-                        showErrorPopup('Có lỗi lầm đâu đó rồi ;((');
-                    }
-                });
+                // $.ajax({
+                //     headers: {
+                //         "X-AUTH": $('meta[name="csrf-token"]').attr("content"),
+                //     },
+                //     //url: baseURL + '/api/blessing',
+                //     url: baseURL,
+                //     method: 'POST',
+                //     data: JSON.stringify({
+                //         "name": name,
+                //         "congratulations": blessing
+                //     }),
+                //     processData: false, // Ngăn jQuery tự động chuyển đổi dữ liệu
+                //     //contentType: false, // Ngăn jQuery thiết lập header Content-Type
+                //     contentType: 'application/json',
+                //     success: function(response) {
+                //         console.log('Phản hồi:', response);
+                //         showSuccessPopup('Gửi lời chúc thành công.');
+                //         $('#guest-name').val('');
+                //         $('#guest-blessing').val('');
+                //         $('#avatar-upload').val('');
+                //         $('.vitualTextarea #content').val('');
+                //         fetchBlessingData(); // Gọi hàm lấy dữ liệu nếu cần
+                //     },
+                //     error: function(xhr, status, error) {
+                //         console.error('Lỗi:', error);
+                //         showErrorPopup('Có lỗi lầm đâu đó rồi ;((');
+                //     }
+                // });
+                const url = baseURL + `?name=${encodeURIComponent(name)}&congratulations=${encodeURIComponent(blessing)}`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(res => {
+            if (res.status === 'success') {
+                showSuccessPopup('Gửi lời chúc thành công!');
+                fetchBlessingData(); // gọi lại danh sách
+            }
+        })
+        .catch(err => {
+            console.error('Lỗi gửi lời chúc:', err);
+            showErrorPopup('Có lỗi xảy ra!');
+        });
             });
 
             fetchBlessingData();
