@@ -1279,7 +1279,7 @@
             </div>
         </section>
         <script>
-            const baseURL = "https://domainname.com";
+            const baseURL = "https://script.google.com/macros/s/AKfycbx5kf74CMaRPd9nOAzjSgci_zWIZFu8yuNENjsNwFnD7Vrb3JciHYK-QgKX9eGZvqjrMw/exec";
             function applyConfig(id) {
                 let dataConfig = {
                     "album": [
@@ -2204,7 +2204,8 @@
                 const slug = $('#congratulation-list').data('slug');
                 if (slug) {
                     $.ajax({
-                        url: baseURL + '/api/blessing', // Gọi đúng endpoint
+                        //url: baseURL + '/api/blessing', // Gọi đúng endpoint
+                        url: baseURL,
                         method: 'GET', // Thay đổi phương thức thành GET
                         success: function(response) {
                             const data = response.data;
@@ -2251,7 +2252,8 @@
                     headers: {
                         "X-AUTH": $('meta[name="csrf-token"]').attr("content"),
                     },
-                    url: baseURL + '/api/blessing',
+                    //url: baseURL + '/api/blessing',
+                    url: baseURL,
                     method: 'POST',
                     data: JSON.stringify({
                         "name": name,
