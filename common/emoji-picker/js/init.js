@@ -1,5 +1,10 @@
-import '/common/emoji-picker/js/index.js'
-$(".textarea-emoji-picker emoji-picker").dataSource = '/common/emoji-picker/js/data.json';
+let  baseres = "";
+if (location.host == "nguyenhuynhhuutai.github.io") {
+    baseres = "/taithuwedding";
+}
+
+import (baseres + '/common/emoji-picker/js/index.js');
+$(".textarea-emoji-picker emoji-picker").dataSource = (baseres + '/common/emoji-picker/js/data.json');
 $(document).ready(function() {
     $(document).on('emoji-click', '.textarea-emoji-picker emoji-picker', function(e){
         let formInput = $(this).parents('.textarea-emoji-picker').find("textarea");
