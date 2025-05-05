@@ -30,7 +30,12 @@ function assertNonEmptyString (str) {
   const INDEX_SKIN_UNICODE = 'skinUnicodes';
   const FIELD_SKIN_UNICODE = 'skinUnicodes';
   
-  const DEFAULT_DATA_SOURCE = '/common/emoji-picker/js/data.json';
+  let  baseres = "";
+  if (location.host == "nguyenhuynhhuutai.github.io") {
+      baseres = "/taithuwedding";
+  }
+  
+  const DEFAULT_DATA_SOURCE = (baseres + '/common/emoji-picker/js/data.json');
   const DEFAULT_LOCALE = 'en';
   
   // like lodash's uniqBy but much smaller
