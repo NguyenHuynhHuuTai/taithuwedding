@@ -3043,7 +3043,8 @@ section#welcome .image-wrapper #banner {
 section#hero::before,
 #story .bg-color-overlay::before,
 #invitation.bg-color-overlay::before {
-  background-color: #FFDBD5 !important;
+  /* background-color: #FFDBD5 !important;*/
+  background-color: #f69898 !important;
 }
 
 .hero-wrapper::before,
