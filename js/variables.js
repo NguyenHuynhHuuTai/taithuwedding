@@ -15,13 +15,7 @@ var mobile_menu_title = "Menu";                 //The title of the mobile menu.
 var hero_full_screen = true;                    //If true, the hero section will fit to screen size. If false, hero height will be the height of its content.
 
 //HERO BACKGROUND SLIDESHOW IMAGES
-// var slidehow_images = [
-//     "images/hero-img1.jpg",
-//     "images/hero-img2.jpg",
-//     "images/hero-img3.jpg",
-//     "images/hero-img4.jpg",
-//     "images/hero-img5.jpg"
-// ];
+// var slidehow_images = [];
 
 //TIMELINE PARALLAX
 var timeline_parallax = true;                   //If false, the timeline items will not move on mousemove.
