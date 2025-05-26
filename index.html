@@ -53,6 +53,39 @@
     <link href="./common/calendar.css?v=20240713" rel="stylesheet">
     <link href="./css/style.css?v=0.0.6" rel="stylesheet">
 
+    <script type="text/javascript">
+        let galleryItemNumber = 0;
+        var photoGalleries = [];
+        var albumItems = [
+            "/images/storage/images/TT_Wedding_001.webp",
+            "/images/storage/images/TT_Wedding_002.webp",
+            "/images/storage/images/TT_Wedding_003.webp",
+            "/images/storage/images/TT_Wedding_004.webp",
+            "/images/storage/images/TT_Wedding_005.webp",
+            "/images/storage/images/TT_Wedding_006.webp",
+            "/images/storage/images/TT_Wedding_007.webp",
+            "/images/storage/images/TT_Wedding_008.webp",
+            "/images/storage/images/TT_Wedding_009.webp",
+            "/images/storage/images/TT_Wedding_010.webp",
+            "/images/storage/images/TT_Wedding_011.webp",
+            "/images/storage/images/TT_Wedding_012.webp",
+            "/images/storage/images/TT_Wedding_013.webp",
+            "/images/storage/images/TT_Wedding_014.webp",
+            "/images/storage/images/TT_Wedding_015.webp",
+            "/images/storage/images/TT_Wedding_016.webp",
+            "/images/storage/images/TT_Wedding_017.webp",
+            "/images/storage/images/TT_Wedding_018.webp",
+        ]; 
+
+        // Populate photoGalleries array for dynamic gallery
+        albumItems.forEach(function(item) {
+            photoGalleries.push({
+                src: item, // Use the item URL as the image source
+                thumb: item, // Use the item URL as the thumbnail source
+                subHtml: `<div class="lg-sub-html"><h4></h4></div>` // Optional caption placeholder
+            });
+        });
+    </script>
     <style type="text/css">
         .fancybox-margin {
             margin-right: 19px;
