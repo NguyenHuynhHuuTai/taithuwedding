@@ -837,8 +837,8 @@ var Neela;
         return false;
 	});
 
-            /*------------------------------------------
-    = MENU ACCESSBILITY
+    /*------------------------------------------
+        = MENU ACCESSBILITY
     -------------------------------------------*/
     $('.btn-menu-open').click(function() {
         $('ul.list-menu-icon').css('opacity','1');
@@ -894,14 +894,14 @@ var Neela;
 		e.preventDefault();
 		let indexNumber = $(this).data('index') || 0;
 		$(this).lightGallery({
-		thumbnail: true,
-		dynamic: true,
-		dynamicEl: photoGalleries,
-		download: true,
-		autoplay: true,
-		preload: 2,
-		appendSubHtmlTo: '.lg-item',
-		index: parseInt(indexNumber)
+            thumbnail: true,
+            dynamic: true,
+            dynamicEl: photoGalleries,
+            download: true,
+            autoplay: true,
+            preload: 2,
+            appendSubHtmlTo: '.lg-item',
+            index: parseInt(indexNumber)
 		});
 	});
 
