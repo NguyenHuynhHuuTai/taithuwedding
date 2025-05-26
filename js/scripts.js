@@ -799,21 +799,42 @@ var Neela;
         contentHtml += '</ul>\
         </div>';
 		$.fancybox({
-                href: _this.data("src"),
-                type: 'html',
-                // title: _this.data("title"),
-                content: contentHtml,
-                helpers: {
-                    title : { type : 'inside' },
-                },
-                maxWidth: 500,
-                minHeight:500,
-                beforeShow : function(){
-                    $(".fancybox-wrap").addClass("gallery-fancybox");
-                },
-            });
-            return false
+            href: _this.data("src"),
+            type: 'html',
+            // title: _this.data("title"),
+            content: contentHtml,
+            helpers: {
+                title : { type : 'inside' },
+            },
+            maxWidth:  500,
+            minHeight: 500,
+            beforeShow : function(){
+                $(".fancybox-wrap").addClass("gallery-fancybox");
+            },
+            afterShow: function () {
+                // HuuTai.Nguyen - 26/05/2025: Kiểm tra loại thiết bị
+                function isMobileDevice() {
+                    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                }
 
+                // HuuTai.Nguyen - 26/05/2025: Fix lỗi hiển thị trên mobile
+                setTimeout(() => {
+                    if (isMobileDevice()) { // Mobile
+                        $('.fancybox-wrap').css({
+                            width: 'auto',
+                            top: '32px',
+                            left: '14px'
+                        });
+                
+                        $('.fancybox-inner').css({
+                            width: 'calc(100vw - 64px)',
+                            height: 'auto'
+                        });
+                    }
+                }, 0);
+            }
+        });
+        return false;
 	});
 
             /*------------------------------------------
