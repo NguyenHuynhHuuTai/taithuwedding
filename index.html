@@ -1703,7 +1703,7 @@
                                         font-size: 16px;
                                     }
                                 </style>
-                                <li data-animation-direction="from-bottom" data-animation-delay="300" class="animate-from-bottom animation-from-bottom editable-child">
+                                <li id="tiecnhagai" data-animation-direction="from-bottom" data-animation-delay="300" class="animate-from-bottom animation-from-bottom editable-child">
                                     <div class="children">
                                         <div class="neela-style">
                                             <span class="h-lines"></span>
@@ -1725,8 +1725,8 @@
                                                     </p>
                                                     
                                                     <div class="w-100 mb-0 mt-1" style="display: flex">
-                                                        <i class="fa fa-map-marker" aria-hidden="true" style="margin: 4px 6px 0 1px;"></i>
-                                                        <p class="editable font-style-h4" id='giftregistry_wedding-gifts_location-1' style="text-align:left;">
+                                                        <i class="fa fa-map-marker" aria-hidden="true" style="margin: 4px 8px 0 1px;"></i>
+                                                        <p class="editable font-style-h4 mb-0" id='giftregistry_wedding-gifts_location-1' style="text-align:left;">
                                                             Ấp Ba Động - Xã Trường Long Hòa - Thị xã Duyên Hải - Tỉnh Trà Vinh
                                                         </p>
                                                     </div>
@@ -1743,7 +1743,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li data-animation-direction="from-bottom" data-animation-delay="300" class="animate-from-bottom animation-from-bottom editable-child ">  
+                                <li id="levuquy" data-animation-direction="from-bottom" data-animation-delay="300" class="animate-from-bottom animation-from-bottom editable-child ">  
                                     <div class="children" style="display: block">
                                         <div class="neela-style"><span class="h-lines"></span><span class="v-lines"></span>
                                             <div class="d-flex align-items-center event-item-content">
@@ -1765,8 +1765,8 @@
                                                     </p>
                                                     
                                                     <div class="w-100 mb-0 mt-1" style="display: flex">
-                                                        <i class="fa fa-map-marker" aria-hidden="true" style="margin: 4px 6px 0 1px;"></i>
-                                                        <p class="editable font-style-h4" id='giftregistry_wedding-gifts_location-0' style="text-align:left;">
+                                                        <i class="fa fa-map-marker" aria-hidden="true" style="margin: 4px 8px 0 1px;"></i>
+                                                        <p class="editable font-style-h4 mb-0" id='giftregistry_wedding-gifts_location-0' style="text-align:left;">
                                                             Ấp Ba Động - Xã Trường Long Hòa - Thị xã Duyên Hải - Tỉnh Trà Vinh
                                                         </p>
                                                     </div>
@@ -1783,7 +1783,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li data-animation-direction="from-bottom" data-animation-delay="300" class="animate-from-bottom animation-from-bottom editable-child ">  
+                                <li id="letanhon" data-animation-direction="from-bottom" data-animation-delay="300" class="animate-from-bottom animation-from-bottom editable-child ">  
                                     <div class="children" style="display: block">
                                         <div class="neela-style"><span class="h-lines"></span><span class="v-lines"></span>
                                             <div class="d-flex align-items-center event-item-content">
@@ -1805,8 +1805,8 @@
                                                     </p>
                                                     
                                                     <div class="w-100 mb-0 mt-1" style="display: flex">
-                                                        <i class="fa fa-map-marker" aria-hidden="true" style="margin: 4px 6px 0 1px;"></i>
-                                                        <p class="editable font-style-h4" id='giftregistry_wedding-gifts_location-0' style="text-align:left;">
+                                                        <i class="fa fa-map-marker" aria-hidden="true" style="margin: 4px 8px 0 1px;"></i>
+                                                        <p class="editable font-style-h4 mb-0" id='giftregistry_wedding-gifts_location-0' style="text-align:left;">
                                                             Ấp Giồng Trôm - Xã Mỹ Chánh - Huyện Châu Thành - Tỉnh Trà Vinh
                                                         </p>
                                                     </div>
@@ -1823,7 +1823,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li data-animation-direction="from-bottom" data-animation-delay="300" class="animate-from-bottom animation-from-bottom editable-child">
+                                <li id="tiecnhatrai" data-animation-direction="from-bottom" data-animation-delay="300" class="animate-from-bottom animation-from-bottom editable-child">
                                     <div class="children">
                                         <div class="neela-style">
                                             <span class="h-lines"></span>
@@ -1845,8 +1845,8 @@
                                                     </p>
                                                     
                                                     <div class="w-100 mb-0 mt-1" style="display: flex">
-                                                        <i class="fa fa-map-marker" aria-hidden="true" style="margin: 4px 6px 0 1px;"></i>
-                                                        <p class="editable font-style-h4" id='giftregistry_wedding-gifts_location-1' style="text-align:left;">
+                                                        <i class="fa fa-map-marker" aria-hidden="true" style="margin: 4px 8px 0 1px;"></i>
+                                                        <p class="editable font-style-h4 mb-0" id='giftregistry_wedding-gifts_location-1' style="text-align:left;">
                                                             Ấp Giồng Trôm - Xã Mỹ Chánh - Huyện Châu Thành - Tỉnh Trà Vinh
                                                         </p>
                                                     </div>
@@ -1869,6 +1869,65 @@
                 </div>
             </div>
         </section>
+        <script>
+            function checkEvents() {
+                const now = new Date();
+
+                // Chuyển sang múi giờ UTC+7
+                const utc7 = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Bangkok" }));
+
+                const events = [
+                    { id: "#tiecnhagai",    startTime: "2025-07-12T15:00:00+07:00", endTime: "2025-07-12T17:00:00+07:00" },
+                    { id: "#levuquy",       startTime: "2025-07-13T07:00:00+07:00", endTime: "2025-07-13T07:30:00+07:00" },
+                    { id: "#letanhon",      startTime: "2025-07-13T09:00:00+07:00", endTime: "2025-07-13T10:00:00+07:00" },
+                    { id: "#tiecnhatrai",   startTime: "2025-07-13T15:00:00+07:00", endTime: "2025-07-13T20:00:00+07:00" }
+                ];
+
+                for (const event of events) {
+                    const startTime = new Date(event.startTime);
+                    const endTime = new Date(event.endTime);
+                    $(`${event.id} .statusEvents`).remove(); // Xóa nội dung cũ
+                    const container = $(`${event.id} div.d-inline-block`);
+
+                    var message = '';
+                    if (utc7 >= startTime && utc7 <= endTime) {
+                        event.status = "now";
+                        message = "Sự kiện đang diễn ra";
+                    } else if (utc7 < startTime) {
+                        event.status = "upcoming";
+                        message = "Sự kiện sắp diễn ra";
+                    } else {
+                        event.status = "past";
+                        message = "Sự kiện đã kết thúc";
+                    }
+
+                    container.append(`
+                    <div class="w-100 d-flex mt-1 statusEvents">
+                        <i class="fas fa-calendar-check" style="margin: 4px 6px 0 1px;"></i>
+                        ${message}
+                    </div>`);
+                }
+
+                // Sắp xếp theo trạng thái: đang diễn ra > sắp diễn ra > đã kết thúc
+                const statusPriority = { "now": 0, "upcoming": 1, "past": 2 };
+                events.sort((a, b) => statusPriority[a.status] - statusPriority[b.status]);
+
+                // Di chuyển lại các <li> trong #wedding-gifts theo thứ tự mới
+                const ul = $("#wedding-gifts");
+                for (const event of events) {
+                    const li = $(event.id).detach();
+                    ul.append(li);
+                }
+
+                console.log(`Check at ${utc7.toLocaleString("vi-VN", { timeZone: "Asia/Bangkok" })}`);
+            }
+
+            // Chạy lần đầu ngay lập tức
+            checkEvents();
+
+            // Sau đó kiểm tra mỗi 3 phút (180000 ms)
+            setInterval(checkEvents, 3 * 60 * 1000);
+        </script>
 
         <section id="rsvp"
             class="section-bg-color extra-padding-section editable-parent scroll-to  ">
